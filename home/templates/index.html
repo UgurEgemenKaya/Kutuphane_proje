@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ilk django sayfası</title>
-</head>
-<body>
-hellooğğğğ
-{{ text }}
+{% extends "homebase.html" %}
 
-</body>
-</html>
+{% block sidebar %} {% include "sidebar.html" %} {% endblock %}
+{% block slider %} {% include "slider.html" %} {% endblock %}
+{% block content %} {% include "content.html" %} {% endblock %}
