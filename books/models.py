@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.safestring import mark_safe
 
 
 class Category(models.Model):
@@ -6,7 +7,7 @@ class Category(models.Model):
         ('True', 'Evet'),
         ('False', 'Hayır'),
     )
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=100)
     keywords =  models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     image = models.ImageField(blank=True, upload_to='images/')
@@ -18,6 +19,10 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
+    def image_tag(self):
+        return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+
+    image_tag.short_description = 'Image'
 
 class Product(models.Model):
     STATUS = (
@@ -25,7 +30,7 @@ class Product(models.Model):
         ('False', 'Hayır'),
     )
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=150)
     keywords = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     image = models.ImageField(blank=True, upload_to='images/')
@@ -38,6 +43,22 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+    def image_tag(self):
+        return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+
+    image_tag.short_description = 'Image'
+
+class Images(models.Model):
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    title = models.CharField(max_length=50, blank=True)
+    image = models.ImageField(blank=True, upload_to='images/')
+
+    def __str__(self):
+        return self.title
+    def image_tag(self):
+        return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+
+    image_tag.short_description = 'Image'
 
 
 
