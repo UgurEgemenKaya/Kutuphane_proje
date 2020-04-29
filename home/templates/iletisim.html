@@ -40,6 +40,23 @@
 
 					{{setting.contact |safe }}
 
+
+                     {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" role="alert">
+                                {{ message }}
+                            </div>
+                            {% endfor %}
+                     {% endif %}
+
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="SEND FORM">
+                    </form>
+
+
                         </div>
                     </div>
                 </main>
