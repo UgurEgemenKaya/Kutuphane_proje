@@ -2,24 +2,45 @@
         <div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel">
 
             <!-- Carousel slides -->
+
             <div class="carousel-inner">
+                {% for rs in sliderdata %}
+
+                    {% if rs.title == 'İslam Sanatı ve Mimarlığı' %}
                 <div class="item active">
                     <figure>
-                        <img alt="Home Slide" src="{% static 'images/header-slider/home-v1/header-slide.jpg'%}" />
+                        <img alt="Home Slide" src="{{ rs.image.url }}" />
                     </figure>
                     <div class="container">
                         <div class="carousel-caption">
-                            <h3>Online Learning Anytime, Anywhere!</h3>
-                            <h2>Discover Your Roots</h2>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
+                            <!-- <h3>Online Learning Anytime, Anywhere!</h3> -->
+                            <h2>{{ rs.title }}</h2>
+                            <p>{{ rs.description }}</p>
                             <div class="slide-buttons hidden-sm hidden-xs">
-                                <a href="#" class="btn btn-primary">Read More</a>
-                                <a href="#" class="btn btn-default">Purchase</a>
+                                <a href="/product/{{ rs.id }}/{{ rs.slug }}" class="btn btn-primary">Ödünç Al</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="item">
+                    {% else %}
+                    <div class="item">
+                    <figure>
+                        <img alt="Home Slide" src="{{ rs.image.url }}" />
+                    </figure>
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <!-- <h3>Online Learning Anytime, Anywhere!</h3> -->
+                            <h2>{{ rs.title }}</h2>
+                            <p>{{ rs.description }}</p>
+                            <div class="slide-buttons hidden-sm hidden-xs">
+                                <a href="/product/{{ rs.id }}/{{ rs.slug }}" class="btn btn-primary">Ödünç Al</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                <!-- <div class="item">
                     <figure>
                         <img alt="Home Slide" src="{% static 'images/header-slider/home-v1/header-slide.jpg'%}" />
                     </figure>
@@ -51,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Controls -->
             <a class="left carousel-control" href="#home-v1-header-carousel" data-slide="prev"></a>
