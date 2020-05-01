@@ -9,7 +9,9 @@ from home.models import Setting , ContactFormu, ContactFormMessage
 def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Product.objects.all()[:3]
-    context = {'setting': setting, 'page':'home','sliderdata':sliderdata}
+    category = Category.objects.all()
+
+    context = {'setting': setting,'category': category, 'page':'home','sliderdata':sliderdata}
     return render(request, 'index.html', context)
 
 def hakkimizda(request):
