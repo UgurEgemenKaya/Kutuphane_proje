@@ -16,12 +16,14 @@ def index(request):
 
 def hakkimizda(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting, 'page':'hakkimizda'}
+    category = Category.objects.all()
+    context = {'setting': setting,'category': category, 'page':'hakkimizda'}
     return render(request, 'hakkimizda.html', context)
 
 def referanslar(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting, 'page':'hakkimizda'}
+    category = Category.objects.all()
+    context = {'setting': setting,'category': category, 'page':'hakkimizda'}
     return render(request, 'referanslarimiz.html', context)
 
 def iletisim(request):
@@ -44,3 +46,10 @@ def iletisim(request):
     category = Category.objects.all()
     context = {'setting': setting,'category': category, 'form': form}
     return render(request, 'iletisim.html', context)
+
+def category_products(request,id,slug):
+    products= Product.objects.filter(category_id=id)
+    category = Category.objects.all()
+    categorydata = Category.objects.get(pk=id)
+    context = {'products': products,'category': category, 'categorydata':categorydata}
+    return render(request,'products.html',context)
