@@ -10,8 +10,13 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Product.objects.all()[:3]
     category = Category.objects.all()
+    dayproducts = Product.objects.all()[:4]
 
-    context = {'setting': setting,'category': category, 'page':'home','sliderdata':sliderdata}
+    context = {'setting': setting,
+               'category': category,
+               'page':'home',
+               'sliderdata':sliderdata,
+               'dayproducts' : dayproducts}
     return render(request, 'index.html', context)
 
 def hakkimizda(request):

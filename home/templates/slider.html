@@ -9,7 +9,7 @@
                     {% if rs.title == 'İslam Sanatı ve Mimarlığı' %}
                 <div class="item active">
                     <figure>
-                        <img alt="Home Slide" src="{{ rs.image.url }}" />
+                        <img alt="Home Slide" src="{{ rs.image.url }}" style="height: 900px" />
                     </figure>
                     <div class="container">
                         <div class="carousel-caption">
@@ -25,7 +25,7 @@
                     {% else %}
                     <div class="item">
                     <figure>
-                        <img alt="Home Slide" src="{{ rs.image.url }}" />
+                        <img alt="Home Slide" src="{{ rs.image.url }}" style="height: 800px" />
                     </figure>
                     <div class="container">
                         <div class="carousel-caption">
@@ -40,40 +40,7 @@
                 </div>
                 {% endif %}
                 {% endfor %}
-                <!-- <div class="item">
-                    <figure>
-                        <img alt="Home Slide" src="{% static 'images/header-slider/home-v1/header-slide.jpg'%}" />
-                    </figure>
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h3>Online Learning Anytime, Anywhere!</h3>
-                            <h2>Discover Your Roots</h2>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
-                            <div class="slide-buttons hidden-sm hidden-xs">
-                                <a href="#" class="btn btn-primary">Read More</a>
-                                <a href="#" class="btn btn-default">Purchase</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <figure>
-                        <img alt="Home Slide" src="{% static 'images/header-slider/home-v1/header-slide.jpg'%}" />
-                    </figure>
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h3>Online Learning Anytime, Anywhere!</h3>
-                            <h2>Discover Your Roots</h2>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
-                            <div class="slide-buttons hidden-sm hidden-xs">
-                                <a href="#" class="btn btn-primary">Read More</a>
-                                <a href="#" class="btn btn-default">Purchase</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
+            </div>
             <!-- Controls -->
             <a class="left carousel-control" href="#home-v1-header-carousel" data-slide="prev"></a>
             <a class="right carousel-control" href="#home-v1-header-carousel" data-slide="next"></a>
