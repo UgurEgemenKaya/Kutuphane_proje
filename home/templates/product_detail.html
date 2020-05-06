@@ -177,8 +177,16 @@
                                             </ul>
                                             <div class="tab-content">
                                                 <div id="sectionB" class="tab-pane fade in">
-                                                    <h5>Lorem Ipsum Dolor</h5>
-                                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
+                                                    {% for rs in comments %}
+                                                    <h5>{{ rs.subject }}</h5>
+                                                    <p><h5><b>{{ rs.user.first_name }}- {{ rs.create_at }} -Tarihinde Dedi ki :</b></h5> {{ rs.comment }}
+                                                    <br> <i class="fa fa-star{% if rs.rate < 1 %}-o empty{% endif %}"></i>
+                                                    <i class="fa fa-star{% if rs.rate < 2 %}-o empty{% endif %}"></i>
+                                                    <i class="fa fa-star{% if rs.rate < 3 %}-o empty{% endif %}"></i>
+                                                    <i class="fa fa-star{% if rs.rate < 4 %}-o empty{% endif %}"></i>
+                                                    <i class="fa fa-star{% if rs.rate < 5 %}-o empty{% endif %}"></i></p><hr>
+                                                    {% endfor %}
+
                                                 </div>
                                                 <div id="sectionC" class="tab-pane fade in">
                                                     <h5>Lorem Ipsum Dolor</h5>
@@ -196,6 +204,32 @@
                                                     <h5>Lorem Ipsum Dolor</h5>
                                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
                                                 </div>
+                                                <form action="/books/addcomment/{{ product.id }}" method="post">
+                                                    {% csrf_token %}
+                                                    <p><input class="input" name="subject" id="id_subject" placeholder="Subject" ></p>
+                                                    <p><textarea name="comment" id="id_comment" cols="40" rows="10" class="input" placeholder="Your Comment" maxlength="255" ></textarea></p>
+                                                    <p> Your Rating :
+                                                        <input type="radio" id="star5" name="rate" value="5" />5<label for="star5"></label>
+                                                       <input type="radio" id="star4" name="rate" value="4" />4<label for="star4"></label>
+                                                       <input type="radio" id="star3" name="rate" value="3" />3<label for="star3"></label>
+                                                       <input type="radio" id="star2" name="rate" value="2" />2<label for="star2"></label>
+                                                       <input type="radio" id="star1" name="rate" value="1" />1<label for="star1"></label>
+                                                    </p>
+                                                    {% if messages %}
+                                                    {% for message in messages %}
+                                                    <div class="alert alert-{{ message.tags }}" role="alert">
+                                                        {{ message }}
+                                                    </div>
+                                                    {% endfor %}
+                                                    {% endif %}
+
+                                                    {% if user.id is not None %}
+                                                        <input type="submit" value="Yorum Ekle !">
+                                                    {% else %}
+                                                            Yorum Eklemek için <a href="/login">Login</a> olunuz!
+                                                    {% endif %}
+                                                </form>
+
                                             </div>
                                         </div>
                                     </div>
