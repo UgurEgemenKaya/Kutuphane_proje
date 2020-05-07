@@ -1,4 +1,29 @@
 <!-- Start: Header Section -->{% load static %}
+<!-- jQuery !-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+<!-- jQuery UI !-->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+<script>
+
+  $(function() {
+    $("#query").autocomplete({
+      source: "/search_auto/",
+      select: function (event, ui) { //item selected
+        AutoCompleteSelectHandler(event, ui)
+      },
+      minLength: 2,
+    });
+  });
+
+  function AutoCompleteSelectHandler(event, ui)
+  {
+    var selectedObj = ui.item;
+  }
+
+</script>
+
         <header id="header-v1" class="navbar-wrapper">
             <div class="container">
                 <div class="row">
@@ -8,7 +33,7 @@
                                 <div class="navbar-header">
                                     <div class="navbar-brand">
                                         <h1>
-                                            <a href="index-2.html">
+                                            <a href="/">
                                                 <img src="{% static 'images/libraria-logo-v1.png'%}" alt="LIBRARIA" />
                                             </a>
                                         </h1>
@@ -24,6 +49,18 @@
                                                 <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+61-3-8376-6284</a>
                                                 <span>/</span>
                                                 <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@libraria.com</a>
+                                                <form action="/search/" method="post">
+                                                    {% csrf_token %}
+                                                    {% load mptt_tags %}
+                                                    <select name="catid" class="input search-categories">
+                                                        <option value="0">All Categories</option>
+                                                        {% for rs in category %}
+                                                            <option value="{{ rs.id }}">{{ rs.title }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                    <input id="query" name="query" class="input search-input" type="text" style="height: 35px;width: 320px" placeholder="Ürün Ara">
+                                                    <button class="search-btn" style=""><i class="fa fa-search"></i></button>
+                                                </form>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">

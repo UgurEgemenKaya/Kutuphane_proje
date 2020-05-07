@@ -1,7 +1,7 @@
 {% extends "homebase.html" %}
 
 
-{% block title %} Ürünler-{{ categorydata.title }} {% endblock %}
+{% block title %} Arama sonuclari {% endblock %}
 {% block keywords %} {{ categorydata.keywords }} {% endblock %}
 {% block description %} {{ categorydata.description }} {% endblock %}
 
@@ -17,14 +17,14 @@
         <section class="page-banner services-banner">
             <div class="container">
                 <div class="banner-header">
-                    <h2>{{ categorydata.title }}</h2>
+                    <h2>Arama Sonuçları</h2>
                     <span class="underline center"></span>
                     <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
                 </div>
                 <div class="breadcrumb">
                     <ul>
                         <li><a href="index-2.html">Home</a></li>
-                        <li>{{ categorydata.title }}</li>
+                        <li> Arama Sonuçları </li>
                     </ul>
                 </div>
             </div>
@@ -39,9 +39,8 @@
                         <div class="container">
                             <div class="row">
                                 <!-- Start: Search Section -->
-
                                 <section class="search-filters">
-                                  <!--   <div class="container">
+                                  <!--  <div class="container">
                                         <div class="filter-box">
                                             <h3>What are you looking for at the library?</h3>
                                             <form action="http://libraria.demo.presstigers.com/index.html" method="get">
@@ -82,7 +81,7 @@
                                                 </div>
                                             </form>
                                         </div>
-                                    </div> -->
+                                    </div>-->
                                 </section>
                                 <!-- End: Search Section -->
                             </div>
@@ -180,7 +179,7 @@
                                             </li>
                                             {% endfor %}
                                             <!-- tek ürün -->
-
+                                           
                                         </ul>
                                     </div>
                                     <nav class="navigation pagination text-center">
