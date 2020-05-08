@@ -65,14 +65,39 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="topbar-links">
-                                                <a href="signin.html"><i class="fa fa-lock"></i>Login / Register</a>
+                                                <div class="header-cart dropdown">
+                                                    {% if user.id is not None %}
+                                                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-lock"></i> Hoşgeldin, {{ user.first_name }}</a>
+                                                        <div class="dropdown-menu cart-dropdown">
+                                                        <ul>
+                                                            <li class="clearfix">
+                                                                <div class="cart-buttons">
+                                                                    <a href="cart.html" class="btn btn-dark-gray" style="color:#ff5c33;">My Account</a>
+                                                                </div>
+                                                            </li>
+                                                            <li class="clearfix">
+                                                                <div class="cart-buttons">
+                                                                    <a href="cart.html" class="btn btn-dark-gray" style="color:#ff5c33;">View Cart</a>
+                                                                </div>
+                                                            </li>
+                                                            <li class="clearfix">
+                                                                <div class="cart-buttons">
+                                                                    <a href="/logout/" class="btn btn-dark-gray" style="color:#ff5c33;">Log Out</a>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    {% else %}
+                                                        <a href="/login/"><i class="fa fa-lock"></i>Login</a> / <a href="/signup/"><i class="fa fa-lock"></i>Register</a>
+                                                    {% endif %}
+
                                                 <span>|</span>
                                                 <div class="header-cart dropdown">
-                                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#">
                                                         <i class="fa fa-shopping-cart"></i>
                                                         <small>0</small>
                                                     </a>
-                                                    <div class="dropdown-menu cart-dropdown">
+                                                    <!--<div class="dropdown-menu cart-dropdown">
                                                         <ul>
                                                             <li class="clearfix">
                                                                 <img src="{% static 'images/header-cart-image-01.jpg'%}" alt="cart item" />
@@ -116,7 +141,7 @@
                                                             <a href="cart.html" class="btn btn-dark-gray">View Cart</a>
                                                             <a href="checkout.html" class="btn btn-primary">Checkout</a>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>
