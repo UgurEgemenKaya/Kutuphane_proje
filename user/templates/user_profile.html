@@ -1,0 +1,149 @@
+{% extends "homebase.html" %}
+
+
+{% block title %}{{ profile.user.first_name }}'s Profile{% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+{% endblock %}
+
+{% block sidebar %} {% include "sidebar.html" %} {% endblock %}
+
+{% block content %}
+
+ <!-- Start: Page Banner -->
+        <section class="page-banner services-banner">
+            <div class="container">
+                <div class="banner-header">
+                    <h2>User Profile</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+                </div>
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li>User Profile</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- End: Page Banner -->
+
+        <!-- Start: Products Section -->
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="main-news-list">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-9 col-md-push-3"><br><br><br>
+                                        <table class="event-table cart">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="product-name">Profile Picture</th>
+                                                                <th class="product-name">Name Surname</th>
+                                                                <th class="product-name">Email</th>
+                                                                <th class="product-name">Phone</th>
+                                                                <th class="product-name">Address</th>
+                                                                <th class="product-name">City</th>
+                                                                <th class="product-name">Country</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td data-title="date-time">
+                                                                    <img src="{{ profile.image.url }}" style="width: 120px;height: 120px">
+                                                                </td>
+                                                                <td data-title="event">
+                                                                    {{profile.user_name}}
+                                                                </td>
+                                                                <td data-title="event">
+                                                                    {{ profile.user.email }}
+                                                                </td>
+                                                                <td data-title="event">
+                                                                    {{profile.phone}}
+                                                                </td>
+                                                                <td data-title="event">
+                                                                    {{ profile.address }}
+                                                                </td>
+                                                                <td data-title="event">
+                                                                    {{ profile.city }}
+                                                                </td>
+                                                                <td data-title="event">
+                                                                    {{ profile.country }}
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                </div>
+
+
+                                {% include "user_panel.html" %}
+
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <!-- End: Products Section -->
+
+        <!-- Start: Social Network -->
+        <section class="social-network section-padding">
+            <div class="container">
+                <div class="center-content">
+                    <h2 class="section-title">Follow Us</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <ul>
+                    <li>
+                        <a class="facebook" href="https://github.com/UgurEgemenKaya" target="_blank">
+                            <span>
+                                <i class="fa fa-facebook-f"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="twitter" href="https://github.com/UgurEgemenKaya" target="_blank">
+                            <span>
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="google" href="https://github.com/UgurEgemenKaya" target="_blank">
+                            <span>
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="rss" href="https://github.com/UgurEgemenKaya" target="_blank">
+                            <span>
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="linkedin" href="https://github.com/UgurEgemenKaya" target="_blank">
+                            <span>
+                                <i class="fa fa-linkedin"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="youtube" href="https://github.com/UgurEgemenKaya" target="_blank">
+                            <span>
+                                <i class="fa fa-youtube"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- End: Social Network -->
+
+ {% endblock %}
