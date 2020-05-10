@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from home import views
+from order import views as orderviews
 
 urlpatterns = [
     path('', include('home.urls')),
@@ -28,6 +29,7 @@ urlpatterns = [
     path('home/', include('home.urls')),
     path('books/', include('books.urls')),
     path('user/', include('user.urls')),
+    path('order/', include('order.urls')),
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('category/<int:id>/<slug:slug>/', views.category_products, name='category_products'),
@@ -37,6 +39,7 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout_view'),
     path('login/', views.login_view, name='login_view'),
     path('signup/', views.signup_view, name='signup_view'),
+    path('shopcart/', orderviews.shopcart, name='shopcart'),
 
 
 
