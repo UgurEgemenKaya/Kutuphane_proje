@@ -1,7 +1,7 @@
 {% extends "homebase.html" %}
 
 
-{% block title %}{{ profile.user.first_name }}'s Profile{% endblock %}
+{% block title %}{{ profile.user.first_name }}'s Order List{% endblock %}
 {% block keywords %} {{ setting.keywords }} {% endblock %}
 {% block description %} {{ setting.description }} {% endblock %}
 
@@ -17,14 +17,14 @@
         <section class="page-banner services-banner">
             <div class="container">
                 <div class="banner-header">
-                    <h2>User Profile</h2>
+                    <h2>Orders</h2>
                     <span class="underline center"></span>
                     <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
                 </div>
                 <div class="breadcrumb">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li>User Profile</li>
+                        <li>Orders</li>
                     </ul>
                 </div>
             </div>
@@ -50,43 +50,33 @@
                                         <table class="event-table cart">
                                                         <thead>
                                                             <tr>
-                                                                <th class="product-name">Profile Picture</th>
-                                                                <th class="product-name">Name Surname</th>
-                                                                <th class="product-name">Email</th>
-                                                                <th class="product-name">Phone</th>
-                                                                <th class="product-name">Address</th>
-                                                                <th class="product-name">City</th>
-                                                                <th class="product-name">Country</th>
+                                                                <th class="product-name">ID</th>
+                                                                <th class="product-name">First Name</th>
+                                                                <th class="product-name">Last Name</th>
+                                                                <th class="product-name">Total</th>
+                                                                <th class="product-name">Status</th>
+                                                                <th class="product-name">Create Date</th>
+                                                                <th class="product-name">Iade Date</th>
+                                                                <th class="product-name">Detail</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                        {% for rs in orders %}
                                                             <tr>
-                                                                <td data-title="date-time">
-                                                                    <img src="{{ profile.image.url }}" style="width: 120px;height: 120px">
-                                                                </td>
-                                                                <td data-title="event">
-                                                                    {{profile.user_name}}
-                                                                </td>
-                                                                <td data-title="event">
-                                                                    {{ profile.user.email }}
-                                                                </td>
-                                                                <td data-title="event">
-                                                                    {{profile.phone}}
-                                                                </td>
-                                                                <td data-title="event">
-                                                                    {{ profile.address }}
-                                                                </td>
-                                                                <td data-title="event">
-                                                                    {{ profile.city }}
-                                                                </td>
-                                                                <td data-title="event">
-                                                                    {{ profile.country }}
-                                                                </td>
+                                                                <td data-title="date-time">{{ rs.id }}</td>
+                                                                <td data-title="date-time">{{ rs.first_name }}</td>
+                                                                <td data-title="date-time">{{ rs.last_name }}</td>
+                                                                <td data-title="date-time">{{ rs.total }}</td>
+                                                                <td data-title="date-time">{{ rs.status }}</td>
+                                                                <td data-title="date-time">{{ rs.create_at }}</td>
+                                                                <td data-title="date-time">{{ rs.teslim_tarih }}</td>
+                                                                <td data-title="date-time"><a class="btn-primary" href="/user/orderdetail/{{ rs.id }} ">Detay</a></td>
+
                                                             </tr>
+                                                        {% endfor %}
                                                         </tbody>
                                                     </table>
-                                    <a href="/user/update" class="btn btn-dark-gray">Update Profile</a>
-                                    <a href="/user/password" class="btn btn-dark-gray">Update Password</a>
+
                                 </div>
 
 

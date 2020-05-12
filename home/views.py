@@ -14,9 +14,9 @@ from order.models import Shopcart
 def index(request):
     current_user = request.user
     setting = Setting.objects.get(pk=1)
-    sliderdata = Product.objects.all()[:3]
+    sliderdata = Product.objects.all()[:4]
     category = Category.objects.all()
-    dayproducts = Product.objects.all()[:8]
+    dayproducts = Product.objects.all()[:16]
     request.session['cart_items'] = Shopcart.objects.filter(user_id=current_user.id).count()
 
     context = {'setting': setting,

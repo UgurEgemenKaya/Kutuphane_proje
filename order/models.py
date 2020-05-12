@@ -66,6 +66,7 @@ class OrderProduct(models.Model):
     STATUS = (
         ('New','New'),
         ('Accepted', 'Accepted'),
+        ('IadeEdildi', 'IadeEdildi'),
         ('Canceled', 'Canceled'),
     )
     order = models.ForeignKey(Order,on_delete=models.CASCADE)

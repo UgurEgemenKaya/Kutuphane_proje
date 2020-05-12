@@ -1,7 +1,7 @@
 {% extends "homebase.html" %}
 
 
-{% block title %}{{ profile.user.first_name }}'s Profile{% endblock %}
+{% block title %} Order Detail{% endblock %}
 {% block keywords %} {{ setting.keywords }} {% endblock %}
 {% block description %} {{ setting.description }} {% endblock %}
 
@@ -17,14 +17,14 @@
         <section class="page-banner services-banner">
             <div class="container">
                 <div class="banner-header">
-                    <h2>User Profile</h2>
+                    <h2>Order Detail</h2>
                     <span class="underline center"></span>
                     <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
                 </div>
                 <div class="breadcrumb">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li>User Profile</li>
+                        <li>Order Detail</li>
                     </ul>
                 </div>
             </div>
@@ -47,16 +47,18 @@
                                     </div>
                                 {% endfor %}
                             {% endif %}
-                                        <table class="event-table cart">
+                                <h4>Order Shipping Information<br><br></h4>
+                                <table class="event-table cart">
                                                         <thead>
                                                             <tr>
                                                                 <th class="product-name">Profile Picture</th>
                                                                 <th class="product-name">Name Surname</th>
-                                                                <th class="product-name">Email</th>
                                                                 <th class="product-name">Phone</th>
                                                                 <th class="product-name">Address</th>
                                                                 <th class="product-name">City</th>
                                                                 <th class="product-name">Country</th>
+                                                                <th class="product-name">Note</th>
+                                                                <th class="product-name">Status</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -65,28 +67,61 @@
                                                                     <img src="{{ profile.image.url }}" style="width: 120px;height: 120px">
                                                                 </td>
                                                                 <td data-title="event">
-                                                                    {{profile.user_name}}
+                                                                    {{order.first_name}} {{ order.last_name }}
                                                                 </td>
                                                                 <td data-title="event">
-                                                                    {{ profile.user.email }}
+                                                                    {{order.phone}}
                                                                 </td>
                                                                 <td data-title="event">
-                                                                    {{profile.phone}}
+                                                                    {{ order.address }}
                                                                 </td>
                                                                 <td data-title="event">
-                                                                    {{ profile.address }}
+                                                                    {{ order.city }}
                                                                 </td>
                                                                 <td data-title="event">
-                                                                    {{ profile.city }}
+                                                                    {{ order.country }}
                                                                 </td>
                                                                 <td data-title="event">
-                                                                    {{ profile.country }}
+                                                                    {{ order.adminnote }}
                                                                 </td>
+                                                                <td data-title="event">
+                                                                    {{ order.status }}
+                                                                </td>
+
                                                             </tr>
                                                         </tbody>
                                                     </table>
-                                    <a href="/user/update" class="btn btn-dark-gray">Update Profile</a>
-                                    <a href="/user/password" class="btn btn-dark-gray">Update Password</a>
+                                        <h4><br>Order Items<br><br></h4>
+                                        <table class="event-table cart">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="product-name">Image</th>
+                                                                <th class="product-name">Product Name</th>
+                                                                <th class="product-name">Quantity</th>
+                                                                <th class="product-name">Status</th>
+                                                                <th class="product-name">Create Date</th>
+                                                                <th class="product-name">Iade Tarih</th>
+                                                                <th class="product-name">Detail</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for rs in orderitems %}
+                                                            <tr>
+
+                                                                <td data-title="date-time"><a href="/product/{{ rs.product_id }}/{{ rs.product.slug }}"><img src="{{ rs.product.image.url }}" style="width: 150px;height: 180px"></a></td>
+                                                                <td data-title="date-time"><a href="/product/{{ rs.product_id }}/{{ rs.product.slug }}"><u>{{ rs.product.title }}</u></a></td>
+
+                                                                <td data-title="date-time">{{ rs.quantity }}</td>
+                                                                <td data-title="date-time">{{ rs.status }}</td>
+                                                                <td data-title="date-time">{{ rs.create_at }}</td>
+                                                                <td data-title="date-time">{{ rs.teslim_tarih }}</td>
+                                                                <td data-title="date-time"><a class="btn-primary" href="/user/orderdetail/{{ rs.id }} ">IADE</a></td>
+
+                                                            </tr>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>
+
                                 </div>
 
 

@@ -38,55 +38,22 @@
                     <div class="main-news-list">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-9 col-md-push-3"><br><br><br>
-                                    {% if messages %}
-                                {% for message in messages %}
-                                    <br>
-                                    <div class="alert alert-{{ message.tags }}" role="alert">
-                                        {{ message | safe }}
+                                <div class="col-md-9 col-md-push-3">
+                                    <div>
+                                        <img src="{{ profile.image.url }}" style="width: 120px;height: 120px">
                                     </div>
-                                {% endfor %}
-                            {% endif %}
-                                        <table class="event-table cart">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="product-name">Profile Picture</th>
-                                                                <th class="product-name">Name Surname</th>
-                                                                <th class="product-name">Email</th>
-                                                                <th class="product-name">Phone</th>
-                                                                <th class="product-name">Address</th>
-                                                                <th class="product-name">City</th>
-                                                                <th class="product-name">Country</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td data-title="date-time">
-                                                                    <img src="{{ profile.image.url }}" style="width: 120px;height: 120px">
-                                                                </td>
-                                                                <td data-title="event">
-                                                                    {{profile.user_name}}
-                                                                </td>
-                                                                <td data-title="event">
-                                                                    {{ profile.user.email }}
-                                                                </td>
-                                                                <td data-title="event">
-                                                                    {{profile.phone}}
-                                                                </td>
-                                                                <td data-title="event">
-                                                                    {{ profile.address }}
-                                                                </td>
-                                                                <td data-title="event">
-                                                                    {{ profile.city }}
-                                                                </td>
-                                                                <td data-title="event">
-                                                                    {{ profile.country }}
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                    <a href="/user/update" class="btn btn-dark-gray">Update Profile</a>
-                                    <a href="/user/password" class="btn btn-dark-gray">Update Password</a>
+                                    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                                        <fieldset class="form-group">
+                                            {{ user_form.as_p }}
+                                            {{ profile_form.as_p }}
+                                        </fieldset>
+                                        <div>
+                                            <button type="submit">Update</button>
+                                        </div>
+
+
+                                    </form>
+
                                 </div>
 
 
