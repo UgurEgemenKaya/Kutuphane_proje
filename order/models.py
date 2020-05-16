@@ -30,9 +30,7 @@ class Order(models.Model):
     STATUS = (
         ('New','New'),
         ('Accepted', 'Accepted'),
-        ('Preparing', 'Preparing'),
-        ('OnShipping', 'OnShipping'),
-        ('Completed', 'Completed'),
+        ('Returned', 'Returned'),
         ('Canceled', 'Canceled'),
     )
 
@@ -47,7 +45,6 @@ class Order(models.Model):
     total = models.FloatField()
     status = models.CharField(max_length=10, choices=STATUS, default='New')
     ip = models.CharField(blank=True, max_length=20)
-    adminnote = models.CharField(blank=True, max_length=100)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
     teslim_tarih = models.DateTimeField(default=datetime.now() + timedelta(days=15))
@@ -66,7 +63,7 @@ class OrderProduct(models.Model):
     STATUS = (
         ('New','New'),
         ('Accepted', 'Accepted'),
-        ('IadeEdildi', 'IadeEdildi'),
+        ('Returned', 'Returned'),
         ('Canceled', 'Canceled'),
     )
     order = models.ForeignKey(Order,on_delete=models.CASCADE)
