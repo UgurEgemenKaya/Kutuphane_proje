@@ -160,7 +160,7 @@
                                             {% load mptt_tags %}
 
                                                 {% recursetree category %}
-                                                    <li><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>
+                                                    <li><a href="/category/{{ node.id }}/{{ node.slug }}"><br>{{ node.title }}</a>
 
                                                         {% if not node.is_leaf_node %}
                                                             <ul class="children" >
@@ -184,7 +184,7 @@
                                                 <li><a href="news-events-detail.html">News &amp; Events Detail</a></li>
                                             </ul>
                                         </li> -->
-                                        <li class="dropdown">
+                                        <!--<li class="dropdown">
                                             <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#">Pages</a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="cart.html">Cart</a></li>
@@ -192,7 +192,7 @@
                                                 <li><a href="signin.html">Signin/Register</a></li>
                                                 <li><a href="404.html">404/Error</a></li>
                                             </ul>
-                                        </li>
+                                        </li>-->
                                         <!--<li class="dropdown">
                                             <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
                                             <ul class="dropdown-menu">
@@ -200,8 +200,8 @@
                                                 <li><a href="blog-detail.html">Blog Detail</a></li>
                                             </ul>
                                         </li> -->
-                                        <li><a href="/referanslar">Referanslar</a></li>
-                                        <li><a href="/iletisim">İLETİŞİM</a></li>
+                                        <li><a href="/referanslar">BAĞIŞÇILARIMIZ</a></li>
+                                        <li><a href="/iletisim">İLETİŞİM & İADE</a></li>
                                         <li><a href="/hakkimizda">Hakkımızda</a></li>
                                     </ul>
                                 </div>

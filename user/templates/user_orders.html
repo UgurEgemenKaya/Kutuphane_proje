@@ -50,7 +50,7 @@
                                         <table class="event-table cart">
                                                         <thead>
                                                             <tr>
-                                                                <th class="product-name">ID</th>
+                                                                <th class="product-name">Ödünç Alma Kodu</th>
                                                                 <th class="product-name">First Name</th>
                                                                 <th class="product-name">Last Name</th>
                                                                 <th class="product-name">Total</th>
@@ -63,7 +63,7 @@
                                                         <tbody>
                                                         {% for rs in orders %}
                                                             <tr>
-                                                                <td data-title="date-time">{{ rs.id }}</td>
+                                                                <td data-title="date-time">{{ rs.code }}</td>
                                                                 <td data-title="date-time">{{ rs.first_name }}</td>
                                                                 <td data-title="date-time">{{ rs.last_name }}</td>
                                                                 <td data-title="date-time">{{ rs.total }}</td>

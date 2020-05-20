@@ -85,7 +85,7 @@ def shopcart(request):
 @login_required(login_url='/login')
 def deletefromcart(request,id):
     Shopcart.objects.filter(id=id).delete()
-    request.session['cart_items'] = Shopcart.objects.filter(user_id=current_user.id).count()
+    #request.session['cart_items'] = Shopcart.objects.filter(user_id=current_user.id).count()
     messages.success(request, "Ürün Sepetten Silinmiştir")
     return HttpResponseRedirect("/shopcart")
 
