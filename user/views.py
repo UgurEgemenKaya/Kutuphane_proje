@@ -6,7 +6,7 @@ from django.http import HttpResponse , HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from books.models import Category
+from books.models import Category, Comment
 from home.models import UserProfile
 from order.models import Order, OrderProduct
 from user.forms import UserUpdateForm, ProfileUpdateForm
@@ -95,3 +95,24 @@ def orderdetail(request,id):
         'profile': profile
     }
     return render(request, 'user_order_detail.html', context)
+
+@login_required(login_url='/login')
+def comments(request):
+    category = Category.objects.all()
+    current_user = request.user
+    profile = UserProfile.objects.get(user_id=current_user.id)
+    comments = Comment.objects.filter(user_id=current_user.id)
+    context = {
+        'category': category,
+        'comments': comments,
+        'profile': profile
+    }
+    return render(request, 'user_comments.html', context)
+
+@login_required(login_url='/login')
+def deletecomment(request,id):
+    current_user = request.user
+    UserProfile.objects.get(user_id=current_user.id)
+    Comment.objects.filter(id=id, user_id=current_user.id).delete()
+    messages.success(request,'Yorum silindi!')
+    return HttpResponseRedirect('/user/comments')

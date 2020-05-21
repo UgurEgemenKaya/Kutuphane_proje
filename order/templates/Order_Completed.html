@@ -37,8 +37,17 @@
                 <main id="main" class="site-main">
                     <div class="error-main">
                         <div class="container"><br><br><br>
-                            <h1> Dear {{ user.first_name }} {{ user.last_name }}<br> Siparişiniz tamamlanmıştır <br>
-                                Order Code : {{ ordercode }}<br> En son iade tarihiniz : {{ tarih }}<br> Teşekkürler</h1>
+                            <h1> Sevgili {{ user.first_name }} {{ user.last_name }}<br></h1>
+                            {% if messages %}
+                                                            {% for message in messages %}
+                                                                <br>
+                                                                <div class="alert alert-{{ message.tags }}" role="alert">
+                                                                    {{ message }}
+                                                                </div>
+                                                            {% endfor %}
+                                                        {% endif %} <br>
+                               <h1> Ödünç Alma kodunuz : {{ ordercode }}<br> En son iade tarihiniz : {{ tarih }}<br> </h1>
+
 
 
 

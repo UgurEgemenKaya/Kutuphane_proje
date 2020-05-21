@@ -60,9 +60,9 @@
                                                             <table class="table table-bordered shop_table cart">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th class="product-name">&nbsp;</th>
-                                                                        <th class="product-name">Title</th>
-                                                                        <th class="product-quantity">Action</th>
+                                                                        <th class="product-name">&nbsp;Title</th>
+                                                                        <th class="product-name">Action</th>
+                                                                        <th class="product-quantity"></th>
                                                                         <th class="product-subtotal">&nbsp;</th>
                                                                     </tr>
                                                                 </thead>
@@ -70,11 +70,11 @@
                                                                     {% for rs in schopcart %}
 
                                                                     <tr class="cart_item">
-                                                                        <td data-title="cbox" class="product-cbox">
+                                                                       <!-- <td data-title="cbox" class="product-cbox">
                                                                             <span>
                                                                                 <input type="checkbox" id="cbox3" value="first_checkbox">
                                                                             </span>
-                                                                        </td>
+                                                                        </td> -->
                                                                         <td data-title="Product" class="product-name">
                                                                             <span class="product-thumbnail">
                                                                                 <a href="#"><img src="{{ rs.product.image.url }}" style="height: 150px;width: 120px" alt="cart-product-1"></a>
@@ -85,7 +85,7 @@
                                                                                 <span><strong>ADET:</strong> {{ rs.quantity }}</span>
                                                                             </span>
                                                                         </td>
-                                                                        <td data-title="action" class="product-action">
+                                                                        <!-- <td data-title="action" class="product-action">
                                                                             <div class="dropdown">
                                                                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Edit Hold <b class="caret"></b></a>
                                                                                 <ul class="dropdown-menu">
@@ -104,7 +104,7 @@
                                                                                     <li><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></li>
                                                                                 </ul>
                                                                             </div>
-                                                                        </td>
+                                                                        </td> -->
                                                                         <td class="product-remove">
                                                                             <a href="/order/deletefromcart/{{ rs.id }}" onclick="return confirm('Ürünü Silmek İstediğinizden Emin misiniz?')">Sepetten silmek için tıklayın</a>
                                                                         </td>
@@ -121,7 +121,7 @@
                                                                         </td>
                                                                         <td data-title="action" class="product-action">
                                                                             <div class="dropdown">
-                                                                                <a href="/order/orderproduct"  class="dropdown-toggle" style="width: 145px">Place Order</a>
+                                                                                <a href="/order/orderproduct"  class="dropdown-toggle" style="width: 145px">Ödünç Al</a>
 
                                                                             </div>
                                                                             <div class="addition-action">

@@ -1,0 +1,151 @@
+{% extends "homebase.html" %}
+
+
+{% block title %}{{ profile.user.first_name }}'s Comment List{% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+{% endblock %}
+
+{% block sidebar %} {% include "sidebar.html" %} {% endblock %}
+
+{% block content %}
+
+ <!-- Start: Page Banner -->
+        <section class="page-banner services-banner">
+            <div class="container">
+                <div class="banner-header">
+                    <h2>User Comments</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+                </div>
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li>User comments</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- End: Page Banner -->
+
+        <!-- Start: Products Section -->
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="main-news-list">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-9 col-md-push-3"><br><br><br>
+                                    {% if messages %}
+                                {% for message in messages %}
+                                    <br>
+                                    <div class="alert alert-{{ message.tags }}" role="alert">
+                                        {{ message | safe }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                                        <table class="event-table cart">
+                                                        <thead>
+                                                            <tr>
+
+                                                                <th class="product-name">Product</th>
+                                                                <th class="product-name">Rate</th>
+                                                                <th class="product-name">Subject</th>
+                                                                <th class="product-name">Comment</th>
+                                                                <th class="product-name">Status</th>
+                                                                <th class="product-name">Create Date</th>
+                                                               <!-- <th class="product-name">Iade Date</th> -->
+                                                                <th class="product-name">Detail</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for rs in comments %}
+                                                            <tr>
+
+                                                                <td data-title="date-time"><a class="btn-primary" href="/product/{{ rs.product_id }}/{{ rs.product.slug }}"><u>{{ rs.product.title }}</u></a></td>
+                                                                <td data-title="date-time">{{ rs.rate }}</td>
+                                                                <td data-title="date-time">{{ rs.subject }}</td>
+                                                                <td data-title="date-time">{{ rs.comment }}</td>
+                                                                <td data-title="date-time">{{ rs.status }}</td>
+                                                                <td data-title="date-time">{{ rs.create_at }}</td>
+                                                                <!--<td data-title="date-time">{{ rs.teslim_tarih }}</td> -->
+                                                                <td data-title="date-time"><a class="btn-primary" href="/user/deletecomment/{{ rs.id }}" onclick="return confirm('Yorumu Silmek İstediğinizden Emin misiniz?')">Delete</a></td>
+
+                                                            </tr>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>
+
+                                </div>
+
+
+                                {% include "user_panel.html" %}
+
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <!-- End: Products Section -->
+
+        <!-- Start: Social Network -->
+        <section class="social-network section-padding">
+            <div class="container">
+                <div class="center-content">
+                    <h2 class="section-title">Follow Us</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <ul>
+                    <li>
+                        <a class="facebook" href="https://github.com/UgurEgemenKaya" target="_blank">
+                            <span>
+                                <i class="fa fa-facebook-f"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="twitter" href="https://github.com/UgurEgemenKaya" target="_blank">
+                            <span>
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="google" href="https://github.com/UgurEgemenKaya" target="_blank">
+                            <span>
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="rss" href="https://github.com/UgurEgemenKaya" target="_blank">
+                            <span>
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="linkedin" href="https://github.com/UgurEgemenKaya" target="_blank">
+                            <span>
+                                <i class="fa fa-linkedin"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="youtube" href="https://github.com/UgurEgemenKaya" target="_blank">
+                            <span>
+                                <i class="fa fa-youtube"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- End: Social Network -->
+
+ {% endblock %}

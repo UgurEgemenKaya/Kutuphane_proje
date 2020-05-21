@@ -5,7 +5,7 @@ from django.contrib import messages
 # Create your views here.
 from books.models import Category, Product, Images, Comment
 from home.forms import SearchForm, SignUpForm
-from home.models import Setting , ContactFormu, ContactFormMessage
+from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile
 import json
 
 from order.models import Shopcart
@@ -16,7 +16,7 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Product.objects.all()[:4]
     category = Category.objects.all()
-    dayproducts = Product.objects.all()[:16]
+    dayproducts = Product.objects.all()[:20]
     request.session['cart_items'] = Shopcart.objects.filter(user_id=current_user.id).count()
 
     context = {'setting': setting,
@@ -146,6 +146,12 @@ def signup_view(request):
             password = form.cleaned_data.get('password1')
             user = authenticate(request, username=username, password=password)
             login(request, user)
+            current_user = request.user
+            data = UserProfile()
+            data.user_id = current_user.id
+            data.image = "images/users/user.png"
+            data.save()
+            messages.success(request,"Hoşgeldiniz, Üyelik başarılı!")
             return HttpResponseRedirect('/')
 
     form = SignUpForm()

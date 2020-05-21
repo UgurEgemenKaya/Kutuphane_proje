@@ -137,7 +137,7 @@ def orderproduct(request):
 
             Shopcart.objects.filter(user_id=current_user.id).delete() #clear and delete shop cart
             request.session['cart_items'] = 0
-            messages.success(request,"Siparişiniz oluşturuldu, Teşekkür Ederiz")
+            messages.success(request,"Kitabı Ödünç Aldınız, Teşekkür Ederiz")
             return render(request,'Order_Completed.html',{'ordercode':ordercode, 'category': category, 'tarih': tarih })
         else:
             messages.warning(request,form.errors)
