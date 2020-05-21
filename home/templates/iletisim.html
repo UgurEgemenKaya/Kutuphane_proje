@@ -17,14 +17,14 @@
         <section class="page-banner services-banner">
             <div class="container">
                 <div class="banner-header">
-                    <h2>İletişim</h2>
+                    <h2>İLETİŞİM & İADE</h2>
                     <span class="underline center"></span>
-                    <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+                    <p class="lead">Ödünç aldığınız kitapları iade edebilir, bizimle iletişime geçebilirsiniz.</p>
                 </div>
                 <div class="breadcrumb">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li>İletişim</li>
+                        <li>İletişim & İade</li>
                     </ul>
                 </div>
             </div>
@@ -37,10 +37,11 @@
                 <main id="main" class="site-main">
                     <div class="error-main">
                         <div class="container">
+                        <br><br>
 
 					{{setting.contact |safe }}
-                            <h1>Iade ve iletişim formu</h1><hr><br><h3>*Eğer Kitap İade Etmek istiyorsanız,<br><br> Ödünç Alma Kodunuzu
-                        ve İade Etmek İstediğiniz Kitabın Adını Mesaj Kısmında Belirtiniz</h3><br><hr>
+                            <h1>İADE VE İLETİŞİM FORMU</h1><hr><br><h3>*EĞER KİTAP İADE ETMEK İSTİYORSANIZ,<br><br> ÖDÜNÇ ALMA KODUNUZU
+                            VE İADE ETMEK İSTEDİĞİNİZ KİTABIN ADINI MESAJ KISMINDA BELİRTİNİZ</h3><br><hr>
                      {% if messages %}
                             {% for message in messages %}
                             <div class="alert alert-{{ message.tags }}" role="alert">
