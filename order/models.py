@@ -29,9 +29,9 @@ class ShopCartForm(ModelForm):
 class Order(models.Model):
     STATUS = (
         ('New','New'),
-        ('Accepted', 'Accepted'),
-        ('Returned', 'Returned'),
-        ('Canceled', 'Canceled'),
+        ('Kabul', 'Kabul'),
+        ('IadeEdildi', 'IadeEdildi'),
+        ('Iptal', 'Iptal'),
     )
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
@@ -62,9 +62,9 @@ class OrderForm(ModelForm):
 class OrderProduct(models.Model):
     STATUS = (
         ('New','New'),
-        ('Accepted', 'Accepted'),
-        ('Returned', 'Returned'),
-        ('Canceled', 'Canceled'),
+        ('Kabul', 'Kabul'),
+        ('IadeEdildi', 'IadeEdildi'),
+        ('Iptal', 'Iptal'),
     )
     order = models.ForeignKey(Order,on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
