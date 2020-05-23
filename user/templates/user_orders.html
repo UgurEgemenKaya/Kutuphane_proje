@@ -17,7 +17,7 @@
         <section class="page-banner services-banner">
             <div class="container">
                 <div class="banner-header">
-                    <h2>Orders</h2>
+                    <h2>Ödünç Listem</h2>
                     <span class="underline center"></span>
                     <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
                 </div>
@@ -51,26 +51,26 @@
                                                         <thead>
                                                             <tr>
                                                                 <th class="product-name">Ödünç Alma Kodu</th>
-                                                                <th class="product-name">First Name</th>
-                                                                <th class="product-name">Last Name</th>
-                                                                <th class="product-name">Total</th>
-                                                                <th class="product-name">Status</th>
-                                                                <th class="product-name">Create Date</th>
-                                                                <th class="product-name">Iade Date</th>
-                                                                <th class="product-name">Detail</th>
+                                                                <th class="product-name">İsim</th>
+                                                                <th class="product-name">Soyisim</th>
+                                                                <th class="product-name">Kitap Sayısı</th>
+                                                                <th class="product-name">Durum</th>
+                                                                <th class="product-name">Ödünç Tarihi</th>
+                                                                <th class="product-name">Iade Tarihi</th>
+                                                                <th class="product-name">Detay</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                         {% for rs in orders %}
                                                             <tr>
-                                                                <td data-title="date-time">{{ rs.code }}</td>
-                                                                <td data-title="date-time">{{ rs.first_name }}</td>
-                                                                <td data-title="date-time">{{ rs.last_name }}</td>
-                                                                <td data-title="date-time">{{ rs.total }}</td>
-                                                                <td data-title="date-time">{{ rs.status }}</td>
-                                                                <td data-title="date-time">{{ rs.create_at }}</td>
-                                                                <td data-title="date-time">{{ rs.teslim_tarih }}</td>
-                                                                <td data-title="date-time"><a class="btn-primary" href="/user/orderdetail/{{ rs.id }} ">Detay</a></td>
+                                                                <td data-title="date-time"><br>{{ rs.code }}<hr><br></td>
+                                                                <td data-title="date-time">{{ rs.first_name }}<hr></td>
+                                                                <td data-title="date-time">{{ rs.last_name }}<hr></td>
+                                                                <td data-title="date-time">{{ rs.total }}<hr></td>
+                                                                <td data-title="date-time">{{ rs.status }}<hr></td>
+                                                                <td data-title="date-time">{{ rs.create_at }}<hr></td>
+                                                                <td data-title="date-time">{{ rs.teslim_tarih }}<hr></td>
+                                                                <td data-title="date-time"><a class="btn-primary" href="/user/orderdetail/{{ rs.id }} ">Detay</a><hr></td>
 
                                                             </tr>
                                                         {% endfor %}

@@ -143,9 +143,9 @@
                                         </ul>
                                         <div class="table-tabs" id="responsiveTabs">
                                             <ul class="nav nav-tabs">
-                                                <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionB">Reviews (12)</a></li>
-                                                <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionC">Table of Contents</a></li>
-                                                <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionD">Novelist Recommendations</a></li>
+                                                <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionB">Comments</a></li>
+                                               <!-- <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionC">Table of Contents</a></li>
+                                                <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionD">Novelist Recommendations</a></li> -->
                                             </ul>
                                             <div class="tab-content">
                                                 <div id="sectionB" class="tab-pane fade in">
@@ -160,7 +160,7 @@
                                                     {% endfor %}
 
                                                 </div>
-                                                <div id="sectionC" class="tab-pane fade in">
+                                                <!--<div id="sectionC" class="tab-pane fade in">
                                                     <h5>Lorem Ipsum Dolor</h5>
                                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
                                                 </div>
@@ -175,7 +175,7 @@
                                                 <div id="sectionF" class="tab-pane fade in">
                                                     <h5>Lorem Ipsum Dolor</h5>
                                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
-                                                </div>
+                                                </div> -->
                                                 <form action="/books/addcomment/{{ product.id }}" method="post">
                                                     {% csrf_token %}
                                                     <p><input class="input" name="subject" id="id_subject" placeholder="Subject" ></p>

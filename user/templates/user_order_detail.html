@@ -47,17 +47,17 @@
                                     </div>
                                 {% endfor %}
                             {% endif %}
-                                <h4>Order Shipping Information<br><br></h4>
+                                <h4>Kitap Gönderim Bilgileri<br><br></h4>
                                 <table class="event-table cart">
                                                         <thead>
                                                             <tr>
-                                                                <th class="product-name">Profile Picture</th>
-                                                                <th class="product-name">Name Surname</th>
-                                                                <th class="product-name">Phone</th>
-                                                                <th class="product-name">Address</th>
-                                                                <th class="product-name">City</th>
-                                                                <th class="product-name">Country</th>
-                                                                <th class="product-name">Status</th>
+                                                                <th class="product-name">Profil Resmi</th>
+                                                                <th class="product-name">Ad Soyad</th>
+                                                                <th class="product-name">Telefon</th>
+                                                                <th class="product-name">Adres</th>
+                                                                <th class="product-name">Şehir</th>
+                                                                <th class="product-name">Ülke</th>
+                                                                <th class="product-name">Durum</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -87,27 +87,27 @@
                                                             </tr>
                                                         </tbody>
                                                     </table>
-                                        <h4><br>Order Items<br><br></h4>
+                                        <h4><br>Ödünç Kitaplar<br><br></h4>
                                         <table class="event-table cart">
                                                         <thead>
                                                             <tr>
-                                                                <th class="product-name">Image</th>
-                                                                <th class="product-name">Product Name</th>
-                                                                <th class="product-name">Quantity</th>
-                                                                <th class="product-name">Status</th>
-                                                                <th class="product-name">Create Date</th>
-                                                                <th class="product-name">Iade Tarih</th>
-                                                                <th class="product-name">Detail</th>
+                                                                <th class="product-name">Resim&nbsp;</th>
+                                                                <th class="product-name">Kitap Adı&nbsp;</th>
+                                                                <th class="product-name">Sayısı&nbsp;&nbsp; </th>
+                                                                <th class="product-name">Durumu&nbsp;&nbsp; </th>
+                                                                <th class="product-name">&nbsp;&nbsp;Ödünç Tarihi</th>
+                                                                <th class="product-name">&nbsp;&nbsp;Iade Tarih</th>
+                                                                <th class="product-name">Detay</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                         {% for rs in orderitems %}
                                                             <tr>
 
-                                                                <td data-title="date-time"><a href="/product/{{ rs.product_id }}/{{ rs.product.slug }}"><img src="{{ rs.product.image.url }}" style="width: 150px;height: 180px"></a></td>
-                                                                <td data-title="date-time"><a href="/product/{{ rs.product_id }}/{{ rs.product.slug }}"><u>{{ rs.product.title }}</u></a></td>
+                                                                <td data-title="date-time"><br><a href="/product/{{ rs.product_id }}/{{ rs.product.slug }}"><img src="{{ rs.product.image.url }}" style="width: 150px;height: 180px"></a></td>
+                                                                <td data-title="date-time"><a href="/product/{{ rs.product_id }}/{{ rs.product.slug }}">&nbsp;&nbsp;<u>{{ rs.product.title }}</u></a></td>
 
-                                                                <td data-title="date-time">{{ rs.quantity }}</td>
+                                                                <td data-title="date-time">&nbsp;&nbsp;&nbsp;{{ rs.quantity }}</td>
                                                                 <td data-title="date-time">{{ rs.status }}</td>
                                                                 <td data-title="date-time">{{ rs.create_at }}</td>
                                                                 <td data-title="date-time">{{ rs.teslim_tarih }}</td>

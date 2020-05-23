@@ -8,9 +8,9 @@
                 <div class="center-content">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
-                            <h2 class="section-title">Check Out The New Releases</h2>
+                            <h2 class="section-title">En yeni kitaplarımıza göz atın !</h2>
                             <span class="underline center"></span>
-                            <p class="lead">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                            <p class="lead">Aşağıda öne çıkan kitaplarımızı bulabilirsiniz</p>
                             {% if messages %}
                                 {% for message in messages %}
                                     <br>
@@ -37,6 +37,7 @@
             <div id="category-filter">
                 <ul class="category-list">
                     {% for rs in dayproducts %}
+                        {% if rs.status == "True" and rs.amount >= 1 %}
                     <li class="category-item adults">
                         <figure>
                             <img src="{{ rs.image.url }}" alt="New Releaase" style="height: 480px" />
@@ -85,6 +86,7 @@
                             </figcaption>
                         </figure>
                     </li>
+                        {% endif %}
                     {% endfor %}
 
                 </ul>
@@ -110,21 +112,21 @@
                 </div>
                 <ul>
                     <li>
-                        <a class="facebook" href="https://github.com/UgurEgemenKaya" target="_blank">
+                        <a class="facebook" href="https://{{ setting.facebook}}" target="_blank">
                             <span>
                                 <i class="fa fa-facebook-f"></i>
                             </span>
                         </a>
                     </li>
                     <li>
-                        <a class="twitter" href="https://github.com/UgurEgemenKaya" target="_blank">
+                        <a class="twitter" href="https://{{ setting.twitter}}" target="_blank">
                             <span>
                                 <i class="fa fa-twitter"></i>
                             </span>
                         </a>
                     </li>
                     <li>
-                        <a class="google" href="https://github.com/UgurEgemenKaya" target="_blank">
+                        <a class="google" href="https://{{ setting.instagram}}" target="_blank">
                             <span>
                                 <i class="fa fa-google-plus"></i>
                             </span>
