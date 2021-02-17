@@ -1,7 +1,7 @@
-"# Kutuphane_proje" 
+"# Kutuphane_proje - Library_Project" 
+
+
+For this project I have used Python Django HTML CSS
 
 Uğur Egemen KAYA
 
-2012010217049
-
-Bilgisayar Mühendisliği %100 2.öğretim
