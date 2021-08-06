@@ -9,7 +9,7 @@ You can perform followings at this project:
   2) User operations
   3) Borrowing books & returning them
  
-Note that; I have used a CSS template but made changes on it to fit my code.
+Note that; I have used a CSS template but made changes (adjusted/redesigned some parts) on it to fit my code.
 
 
 Uğur Egemen KAYA
